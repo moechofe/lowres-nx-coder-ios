@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B99181B2A65427C0015B468 /* particles_lib.c in Sources */ = {isa = PBXBuildFile; fileRef = 5B9918192A65427C0015B468 /* particles_lib.c */; };
+		5BAF0D5E2A654C220023FA61 /* cmd_particle.c in Sources */ = {isa = PBXBuildFile; fileRef = 5BAF0D5C2A654C220023FA61 /* cmd_particle.c */; };
 		9208A7D1202120AF00D1EFF7 /* cmd_subs.c in Sources */ = {isa = PBXBuildFile; fileRef = 9208A7CF202120AE00D1EFF7 /* cmd_subs.c */; };
 		920E1B1A1F77FF7A00664382 /* ExplorerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920E1B191F77FF7A00664382 /* ExplorerViewController.swift */; };
 		920E1B1C1F78000800664382 /* ExplorerItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920E1B1B1F78000800664382 /* ExplorerItemCell.swift */; };
@@ -137,6 +139,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5B9918192A65427C0015B468 /* particles_lib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = particles_lib.c; sourceTree = "<group>"; };
+		5B99181A2A65427C0015B468 /* particles_lib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = particles_lib.h; sourceTree = "<group>"; };
+		5BAF0D5C2A654C220023FA61 /* cmd_particle.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cmd_particle.c; sourceTree = "<group>"; };
+		5BAF0D5D2A654C220023FA61 /* cmd_particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cmd_particle.h; sourceTree = "<group>"; };
 		9208A7CF202120AE00D1EFF7 /* cmd_subs.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cmd_subs.c; sourceTree = "<group>"; };
 		9208A7D0202120AF00D1EFF7 /* cmd_subs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cmd_subs.h; sourceTree = "<group>"; };
 		920E1B191F77FF7A00664382 /* ExplorerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorerViewController.swift; sourceTree = "<group>"; };
@@ -483,6 +489,8 @@
 		928401D61F7448B500AC1466 /* interpreter */ = {
 			isa = PBXGroup;
 			children = (
+				5BAF0D5C2A654C220023FA61 /* cmd_particle.c */,
+				5BAF0D5D2A654C220023FA61 /* cmd_particle.h */,
 				92ED99631FA4E3470073559B /* charsets.c */,
 				92ED99681FA4E3480073559B /* charsets.h */,
 				9289C40821288757009BE093 /* cmd_audio.c */,
@@ -543,6 +551,8 @@
 		928402021F7448B500AC1466 /* libraries */ = {
 			isa = PBXGroup;
 			children = (
+				5B9918192A65427C0015B468 /* particles_lib.c */,
+				5B99181A2A65427C0015B468 /* particles_lib.h */,
 				9289C40521288747009BE093 /* audio_lib.c */,
 				9289C40621288747009BE093 /* audio_lib.h */,
 				928402031F7448B500AC1466 /* default_characters.c */,
@@ -819,6 +829,7 @@
 				9289C40A21288757009BE093 /* cmd_audio.c in Sources */,
 				9284022F1F7448B500AC1466 /* text_lib.c in Sources */,
 				928402211F7448B500AC1466 /* cmd_strings.c in Sources */,
+				5B99181B2A65427C0015B468 /* particles_lib.c in Sources */,
 				92FAB24D1FC07D1C002E45FB /* LowResNXView.swift in Sources */,
 				9284022E1F7448B500AC1466 /* sprites_lib.c in Sources */,
 				9289C40C2128A46E009BE093 /* LowResNXAudioPlayer.swift in Sources */,
@@ -849,6 +860,7 @@
 				92817749221FDA72005B7A24 /* AppController.swift in Sources */,
 				92A7E14E223BCD0F00ED2487 /* URLRequest+Utils.swift in Sources */,
 				926075512216ECEC0017E04B /* DonationViewController.swift in Sources */,
+				5BAF0D5E2A654C220023FA61 /* cmd_particle.c in Sources */,
 				9284021D1F7448B500AC1466 /* cmd_maths.c in Sources */,
 				9208A7D1202120AF00D1EFF7 /* cmd_subs.c in Sources */,
 				920E1B321F78024500664382 /* NSString+Utils.m in Sources */,
