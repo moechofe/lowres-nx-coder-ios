@@ -45,7 +45,6 @@
 		923AFD811F77ED52002F6A5B /* HelpTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 926EB1F51F7582A40048A6CF /* HelpTextViewController.m */; };
 		923C311020587965003C89AC /* ToolsMenuConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923C310F20587965003C89AC /* ToolsMenuConfiguration.swift */; };
 		924AB3F2205D986C00BCF977 /* IndexSideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924AB3F1205D986B00BCF977 /* IndexSideBar.swift */; };
-		925CC6B81F758A120059C230 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 925CC6B71F758A120059C230 /* StoreKit.framework */; };
 		926075512216ECEC0017E04B /* DonationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926075502216ECEC0017E04B /* DonationViewController.swift */; };
 		92612125223D73BE0079A486 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92612124223D73BE0079A486 /* WebViewController.swift */; };
 		926EB1DC1F757FAD0048A6CF /* UIViewController+LowResCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 926EB1DA1F757FAD0048A6CF /* UIViewController+LowResCoder.m */; };
@@ -183,7 +182,6 @@
 		925CC6A41F75896F0059C230 /* GORLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GORLabel.m; sourceTree = "<group>"; };
 		925CC6B11F7589B90059C230 /* AppStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppStyle.h; sourceTree = "<group>"; };
 		925CC6B41F7589BA0059C230 /* AppStyle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppStyle.m; sourceTree = "<group>"; };
-		925CC6B71F758A120059C230 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		925CC6B91F758A360059C230 /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
 		926075502216ECEC0017E04B /* DonationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationViewController.swift; sourceTree = "<group>"; };
 		92612124223D73BE0079A486 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -324,7 +322,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				925CC6B81F758A120059C230 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,7 +397,6 @@
 			isa = PBXGroup;
 			children = (
 				925CC6B91F758A360059C230 /* ReplayKit.framework */,
-				925CC6B71F758A120059C230 /* StoreKit.framework */,
 				922798922527251F004F6E1A /* WidgetKit.framework */,
 				922798942527251F004F6E1A /* SwiftUI.framework */,
 			);
@@ -727,12 +723,12 @@
 				TargetAttributes = {
 					922798902527251F004F6E1A = {
 						CreatedOnToolsVersion = 12.0.1;
-						DevelopmentTeam = BZ4VC623NH;
+						DevelopmentTeam = C2ZVL6EH3H;
 						ProvisioningStyle = Automatic;
 					};
 					92EA93B91F744572007BEFB1 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = BZ4VC623NH;
+						DevelopmentTeam = C2ZVL6EH3H;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -920,7 +916,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 62;
 				DEVELOPMENT_ASSET_PATHS = "Widgets/Preview\\ Assets.xcassets";
-				DEVELOPMENT_TEAM = BZ4VC623NH;
+				DEVELOPMENT_TEAM = C2ZVL6EH3H;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Widgets/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -928,7 +924,7 @@
 				MARKETING_VERSION = 1.13;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.inutilis.ios.LowRes-NX-Coder.Widgets";
+				PRODUCT_BUNDLE_IDENTIFIER = com.moechofe.ios.myLRNX.Widgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -948,14 +944,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 62;
 				DEVELOPMENT_ASSET_PATHS = "Widgets/Preview\\ Assets.xcassets";
-				DEVELOPMENT_TEAM = BZ4VC623NH;
+				DEVELOPMENT_TEAM = C2ZVL6EH3H;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Widgets/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MARKETING_VERSION = 1.13;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.inutilis.ios.LowRes-NX-Coder.Widgets";
+				PRODUCT_BUNDLE_IDENTIFIER = com.moechofe.ios.myLRNX.Widgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -1083,11 +1079,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "LowRes NX Coder/LowRes NX Coder.entitlements";
 				CURRENT_PROJECT_VERSION = 62;
-				DEVELOPMENT_TEAM = BZ4VC623NH;
+				DEVELOPMENT_TEAM = C2ZVL6EH3H;
 				INFOPLIST_FILE = "$(SRCROOT)/LowRes NX Coder/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.13;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.inutilis.ios.LowRes-NX-Coder";
+				PRODUCT_BUNDLE_IDENTIFIER = com.moechofe.ios.myLRNX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "LowRes NX Coder/LowResNX-Bridging-Header.h";
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = YES;
@@ -1103,11 +1099,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "LowRes NX Coder/LowRes NX Coder.entitlements";
 				CURRENT_PROJECT_VERSION = 62;
-				DEVELOPMENT_TEAM = BZ4VC623NH;
+				DEVELOPMENT_TEAM = C2ZVL6EH3H;
 				INFOPLIST_FILE = "$(SRCROOT)/LowRes NX Coder/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.13;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.inutilis.ios.LowRes-NX-Coder";
+				PRODUCT_BUNDLE_IDENTIFIER = com.moechofe.ios.myLRNX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "LowRes NX Coder/LowResNX-Bridging-Header.h";
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = YES;
