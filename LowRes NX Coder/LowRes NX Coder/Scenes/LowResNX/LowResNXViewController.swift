@@ -270,13 +270,13 @@ class LowResNXViewController: UIViewController, UIKeyInput, CoreWrapperDelegate,
         if #available(iOS 11.0, *) {
             top = view.safeAreaInsets.top
             left = view.safeAreaInsets.left
-            right = view.bounds.width - view.safeAreaInsets.right
-            bottom = view.bounds.height - view.safeAreaInsets.bottom
+            right = view.safeAreaInsets.right
+            bottom = view.safeAreaInsets.bottom
         } else {
             top = 0
             left = 0
-            right = view.bounds.width
-            bottom = view.bounds.height
+            right = 0
+            bottom = 0
         }
 
         // compute size of the nxview
@@ -309,13 +309,13 @@ class LowResNXViewController: UIViewController, UIKeyInput, CoreWrapperDelegate,
         // send shown and safe size
 
         if let coreWrapper = coreWrapper {
-            coreWrapper.input.shown.width = Int32(w/s)
-            coreWrapper.input.shown.height = Int32(h/s)
+            coreWrapper.input.width = Int32(w/s)
+            coreWrapper.input.height = Int32(h/s)
 
-            coreWrapper.input.safe.left = Int32(left/s)
-            coreWrapper.input.safe.top = Int32(top/s)
-            coreWrapper.input.safe.right = Int32(right/s)
-            coreWrapper.input.safe.bottom = Int32(bottom/s)
+            coreWrapper.input.left = Int32(left/s)
+            coreWrapper.input.top = Int32(top/s)
+            coreWrapper.input.right = Int32(right/s)
+            coreWrapper.input.bottom = Int32(bottom/s)
         }
 
         // width = right - left
