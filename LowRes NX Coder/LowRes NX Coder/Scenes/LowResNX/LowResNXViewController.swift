@@ -290,17 +290,18 @@ class LowResNXViewController: UIViewController, UIKeyInput, CoreWrapperDelegate,
         var height: CGFloat
 
         if r >= 9.0/16.0 {
-            width = h*r
-            s = w/216.0
-        } else {
             width = w
-            s = h/384.0
+            s = width/216.0
+            height = 384.0*s
+        } else {
+            height = h
+            s = height/384.0
+            width = 216.0*s
         }
-        height = width/9.0*16.0
 
         nxView.frame = CGRect(
-            x: floor((view.bounds.width-width)*0.5),
-            y: floor((view.bounds.height-height)*0.5),
+            x: 0,
+            y: 0,
             width: width,
             height: height
         )
