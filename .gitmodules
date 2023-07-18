@@ -1,4 +1,6 @@
 [submodule "LowRes NX Coder/LowRes NX Core"]
 	path = LowRes NX Coder/LowRes NX Core
-	url = https://moechofe@github.com/moechofe/lowres-nx.git
+	url = github.com:moechofe/lowres-nx.git
 	
+[submodule "LowRes NX Coder/LowRes NX Core/"]
+	url = git@github.com:moechofe/lowres-nx.git
