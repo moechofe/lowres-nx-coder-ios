@@ -65,9 +65,8 @@
                                     <action selector="pauseTapped:" destination="eHk-P2-FSa" eventType="touchDown" id="NmH-8N-xc4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.25" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UGT-qu-6MS" userLabel="Exit Button">
-                                <rect key="frame" x="0.0" y="0.0" width="33" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" alpha="0.25" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UGT-qu-6MS" userLabel="Exit Button">
+                                <rect key="frame" x="10" y="10" width="33" height="33"/>
                                 <state key="normal" image="exit">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -75,9 +74,8 @@
                                     <action selector="onExitTapped:" destination="eHk-P2-FSa" eventType="touchUpInside" id="7Te-qH-bwp"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.25" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xvW-7I-abI">
-                                <rect key="frame" x="370" y="0.0" width="44" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" alpha="0.25" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xvW-7I-abI">
+                                <rect key="frame" x="371" y="10" width="33" height="33"/>
                                 <state key="normal" image="more"/>
                                 <connections>
                                     <action selector="settingsTapped:" destination="eHk-P2-FSa" eventType="touchUpInside" id="mrF-YT-Ibg"/>
@@ -86,6 +84,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wrQ-sh-Squ"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xvW-7I-abI" firstAttribute="top" secondItem="g0A-yH-wBi" secondAttribute="top" constant="10" id="Nmy-uz-CdQ"/>
+                            <constraint firstItem="UGT-qu-6MS" firstAttribute="top" secondItem="g0A-yH-wBi" secondAttribute="top" constant="10" id="b2M-VL-HPv"/>
+                            <constraint firstItem="wrQ-sh-Squ" firstAttribute="leading" secondItem="UGT-qu-6MS" secondAttribute="leading" constant="-10" id="hDd-Tx-vW1" userLabel="Safe Area.leading = Exit Button.trailing + 10"/>
+                            <constraint firstItem="wrQ-sh-Squ" firstAttribute="trailing" secondItem="xvW-7I-abI" secondAttribute="trailing" constant="10" id="sPm-Pi-w7i"/>
+                        </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
