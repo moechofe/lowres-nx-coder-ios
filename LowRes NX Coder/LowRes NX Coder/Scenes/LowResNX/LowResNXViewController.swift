@@ -914,9 +914,11 @@ class LowResNXViewController: UIViewController, UIKeyInput, CoreWrapperDelegate,
                         self.diskDocument = document
                         let cDiskSourceCode = (document.sourceCode ?? "").cString(using: .utf8)
                         data_import(diskDataManager, cDiskSourceCode, true)
-                        self.showAlert(withTitle: "Using “Disk.nx” as Virtual Disk", message: nil, block: {
-                            core_diskLoaded(&self.coreWrapper!.core)
-                        })
+                        // TODO: hidding alert for now
+//                        self.showAlert(withTitle: "Using “Disk.nx” as Virtual Disk", message: nil, block: {
+//                            core_diskLoaded(&self.coreWrapper!.core)
+//                        })
+                        core_diskLoaded(&self.coreWrapper!.core)
                     } else {
                         self.showAlert(withTitle: "Could not Access Virtual Disk", message: error?.localizedDescription, block: {
                             self.exit()
