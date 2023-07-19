@@ -87,6 +87,10 @@ class LowResNXViewController: UIViewController, UIKeyInput, CoreWrapperDelegate,
     private var numOnscreenGamepads = 0
     private var keyboardTop: CGFloat?
     private var keyboardGamepad = CoreInputGamepad()
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
