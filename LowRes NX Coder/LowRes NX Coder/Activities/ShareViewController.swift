@@ -26,7 +26,7 @@ class ShareViewController: UIViewController, WKNavigationDelegate {
         config.processPool = AppController.shared.webProcessPool
         webView = WKWebView(frame: CGRect.zero, configuration: config)
         
-        webView.backgroundColor = AppStyle.darkGrayColor()
+//        webView.backgroundColor = AppStyle.darkGrayColor()
         webView.isOpaque = false
         webView.scrollView.indicatorStyle = .white
         webView.navigationDelegate = self

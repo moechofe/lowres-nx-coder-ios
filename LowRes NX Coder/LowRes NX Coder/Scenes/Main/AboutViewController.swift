@@ -43,9 +43,9 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
         versionLabel.text = "Version \(appVersion)"
         coreVersionLabel.text = "Core \(coreVersion)"
         
-        coreVersionLabel.textColor = AppStyle.mediumGrayColor()
-        copyrightLabel.textColor = AppStyle.mediumGrayColor()
-        tableView.indicatorStyle = .white
+//        coreVersionLabel.textColor = AppStyle.mediumGrayColor()
+//        copyrightLabel.textColor = AppStyle.mediumGrayColor()
+//        tableView.indicatorStyle = .white
         
         menuEntries.append(MenuEntry(title: "Rate in App Store", action: .web(URL(string: "https://itunes.apple.com/app/id1318884577?action=write-review")!)))
         menuEntries.append(MenuEntry(title: "Donate to Developer", action: .donate))
@@ -68,7 +68,7 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
         if MFMailComposeViewController.canSendMail() {
             let mailViewController = MFMailComposeViewController()
             
-            mailViewController.view.tintColor = AppStyle.darkTintColor()
+//            mailViewController.view.tintColor = AppStyle.darkTintColor()
             mailViewController.mailComposeDelegate = self
             
             let device = UIDevice.current

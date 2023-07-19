@@ -1,3 +1,5 @@
+POKE $A000,2
+
 VER$="0.0"
 
 'TOUCHSCREEN

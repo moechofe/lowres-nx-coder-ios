@@ -13,13 +13,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)setAppearance;
 
-+ (UIColor *)mediumTintColor;
-+ (UIColor *)darkTintColor;
-+ (UIColor *)brightTintColor;
-+ (UIColor *)darkGrayColor;
-+ (UIColor *)mediumDarkGrayColor;
-+ (UIColor *)mediumGrayColor;
-+ (UIColor *)whiteColor;
+//+ (UIColor *)mediumTintColor;
+//+ (UIColor *)darkTintColor;
+//+ (UIColor *)brightTintColor;
+//+ (UIColor *)darkGrayColor;
+//+ (UIColor *)mediumDarkGrayColor;
+//+ (UIColor *)mediumGrayColor;
+//+ (UIColor *)whiteColor;
 
 @end
 NS_ASSUME_NONNULL_END

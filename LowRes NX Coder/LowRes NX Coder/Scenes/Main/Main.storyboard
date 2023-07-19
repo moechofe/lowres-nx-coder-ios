@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oli-IW-NHE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oli-IW-NHE">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--(Program Name)-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="EditorView" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="EditorViewController" customModule="LowRes_NX_Coder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditorView" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="EditorViewController" customModule="LowRes_NX_Coder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SjB-QF-tvR" customClass="EditorTextView">
-                                <rect key="frame" x="0.0" y="50" width="320" height="454.5"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" red="0.95564913749694824" green="0.95562052726745605" blue="0.95563679933547974" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="0.0" y="114" width="320" height="434.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="tintColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                 <variation key="widthClass=compact">
@@ -27,16 +28,16 @@
                                 </variation>
                             </textView>
                             <view opaque="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Li9-mY-tbX" customClass="IndexSideBar" customModule="LowRes_NX_Coder" customModuleProvider="target">
-                                <rect key="frame" x="298" y="50" width="22" height="454.5"/>
+                                <rect key="frame" x="298" y="114" width="22" height="434.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="22" id="amw-3n-hIz"/>
                                 </constraints>
                             </view>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="kZb-hA-hPw">
-                                <rect key="frame" x="141.5" y="243.5" width="37" height="37"/>
+                                <rect key="frame" x="141.5" y="265.5" width="37" height="37"/>
                             </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Riv-NM-enY" customClass="SearchToolbar">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Find Text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0qF-dj-Piz">
                                         <rect key="frame" x="8" y="8" width="80" height="34"/>
@@ -102,10 +103,10 @@
                                 </connections>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tab_shadow" translatesAutoresizingMaskIntoConstraints="NO" id="Ivc-4I-P3i">
-                                <rect key="frame" x="0.0" y="500.5" width="320" height="4"/>
+                                <rect key="frame" x="0.0" y="544.5" width="320" height="4"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ywm-uw-HtD">
-                                <rect key="frame" x="0.0" y="504.5" width="320" height="19.5"/>
+                                <rect key="frame" x="0.0" y="548.5" width="320" height="19.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="4hT-0H-d5i">
                                         <rect key="frame" x="86.5" y="2" width="147" height="14.5"/>
@@ -113,19 +114,18 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tokens: 0/0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9e-Hf-jhP">
                                                 <rect key="frame" x="0.0" y="0.0" width="66" height="14.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <color key="textColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ROM: 0/0 B" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NyC-Dz-74Q">
                                                 <rect key="frame" x="82" y="0.0" width="65" height="14.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <color key="textColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="4hT-0H-d5i" secondAttribute="trailing" id="E8E-kq-h3B"/>
                                     <constraint firstAttribute="bottom" secondItem="4hT-0H-d5i" secondAttribute="bottom" constant="3" id="TRi-Z0-FuA"/>
@@ -136,7 +136,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ls4-77-m9J"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="kZb-hA-hPw" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="61N-WR-8zy"/>
                             <constraint firstItem="Ywm-uw-HtD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="7bn-7b-PXD"/>
@@ -179,11 +179,11 @@
         <!--Donate-->
         <scene sceneID="0aa-QZ-Dxx">
             <objects>
-                <tableViewController id="L1e-0h-SY4" customClass="DonationViewController" customModule="LowRes_NX_Coder" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController extendedLayoutIncludesOpaqueBars="YES" id="L1e-0h-SY4" customClass="DonationViewController" customModule="LowRes_NX_Coder" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bOZ-io-XqS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" id="dvn-eA-KIe">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="335"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -220,7 +220,7 @@ However it is a lot of work to create an app like this. If you like it, please c
                             </constraints>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="APW-Ye-qs3">
-                            <rect key="frame" x="0.0" y="434.5" width="320" height="44"/>
+                            <rect key="frame" x="0.0" y="456.5" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="I2P-eQ-hjh">
@@ -234,7 +234,7 @@ However it is a lot of work to create an app like this. If you like it, please c
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DonateCell" textLabel="4es-OC-37y" detailTextLabel="gpS-nx-cNS" style="IBUITableViewCellStyleValue1" id="0kP-Ov-uCf">
-                                <rect key="frame" x="0.0" y="363" width="320" height="43.5"/>
+                                <rect key="frame" x="0.0" y="385" width="320" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0kP-Ov-uCf" id="DTy-y5-WeU">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -275,7 +275,7 @@ However it is a lot of work to create an app like this. If you like it, please c
         <!--Community-->
         <scene sceneID="RPm-V6-JHV">
             <objects>
-                <viewController id="4FR-4E-1pq" customClass="CommunityViewController" customModule="LowRes_NX_Coder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="4FR-4E-1pq" customClass="CommunityViewController" customModule="LowRes_NX_Coder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x62-KY-rlb" customClass="BackgroundView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -307,7 +307,7 @@ However it is a lot of work to create an app like this. If you like it, please c
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="St1-A2-XCa"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="W5I-aS-W3p" firstAttribute="centerY" secondItem="x62-KY-rlb" secondAttribute="centerY" id="lak-Bn-n9j"/>
                             <constraint firstItem="W5I-aS-W3p" firstAttribute="centerX" secondItem="x62-KY-rlb" secondAttribute="centerX" id="rgb-2Q-Lb3"/>
@@ -322,10 +322,12 @@ However it is a lot of work to create an app like this. If you like it, please c
         <!--Navigation Controller-->
         <scene sceneID="2IR-fi-xuT">
             <objects>
-                <navigationController storyboardIdentifier="AboutNav" modalPresentationStyle="formSheet" id="i5J-w0-OfA" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="AboutNav" extendedLayoutIncludesOpaqueBars="YES" modalPresentationStyle="formSheet" id="i5J-w0-OfA" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="zDA-Mf-8KW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="barTintColor" systemColor="secondarySystemBackgroundColor"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.0" green="0.0014800280332565308" blue="0.10033674538135529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
@@ -341,7 +343,7 @@ However it is a lot of work to create an app like this. If you like it, please c
         <!--Splash View Controller-->
         <scene sceneID="1Ds-bG-bIC">
             <objects>
-                <viewController id="oli-IW-NHE" customClass="SplashViewController" customModule="LowRes_NX_Coder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="oli-IW-NHE" customClass="SplashViewController" customModule="LowRes_NX_Coder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8pd-8W-KfW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -358,7 +360,7 @@ However it is a lot of work to create an app like this. If you like it, please c
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uja-Vo-WJC"/>
-                        <color key="backgroundColor" red="0.058823529411764705" green="0.68627450980392157" blue="0.68627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                         <constraints>
                             <constraint firstItem="m0F-F9-RSi" firstAttribute="centerX" secondItem="8pd-8W-KfW" secondAttribute="centerX" id="Pfk-0O-ABd"/>
                             <constraint firstItem="gxY-ZO-GGP" firstAttribute="centerX" secondItem="8pd-8W-KfW" secondAttribute="centerX" id="VY7-9h-FsC"/>
@@ -378,11 +380,12 @@ However it is a lot of work to create an app like this. If you like it, please c
         <!--Tab Bar Controller-->
         <scene sceneID="FoE-eQ-Zhz">
             <objects>
-                <tabBarController storyboardIdentifier="AppStart" id="pQf-xf-vZn" customClass="TabBarController" customModule="LowRes_NX_Coder" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="AppStart" extendedLayoutIncludesOpaqueBars="YES" id="pQf-xf-vZn" customClass="TabBarController" customModule="LowRes_NX_Coder" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XgI-WL-F9F">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="barTintColor" systemColor="secondarySystemBackgroundColor"/>
                     </tabBar>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wR1-HP-Cmk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -392,11 +395,11 @@ However it is a lot of work to create an app like this. If you like it, please c
         <!--About-->
         <scene sceneID="MTr-KL-zlA">
             <objects>
-                <tableViewController id="dks-Z0-Sk1" customClass="AboutViewController" customModule="LowRes_NX_Coder" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController extendedLayoutIncludesOpaqueBars="YES" id="dks-Z0-Sk1" customClass="AboutViewController" customModule="LowRes_NX_Coder" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bS2-Be-Zg5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="LVT-MC-nf7">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="278"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -441,7 +444,7 @@ However it is a lot of work to create an app like this. If you like it, please c
                             </constraints>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" id="0Af-BT-7ZV">
-                            <rect key="frame" x="0.0" y="421" width="320" height="60"/>
+                            <rect key="frame" x="0.0" y="443" width="320" height="60"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g01-MB-aiJ">
@@ -462,14 +465,14 @@ Inutilis Software, 2017-2020</string>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Disclosure" textLabel="4vg-hA-p4D" style="IBUITableViewCellStyleDefault" id="hhH-4t-BLN">
-                                <rect key="frame" x="0.0" y="306" width="320" height="43.5"/>
+                                <rect key="frame" x="0.0" y="328" width="320" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hhH-4t-BLN" id="ka0-1a-f9b">
-                                    <rect key="frame" x="0.0" y="0.0" width="293" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="293.5" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4vg-hA-p4D" customClass="TextLabel">
-                                            <rect key="frame" x="16" y="0.0" width="269" height="43.5"/>
+                                            <rect key="frame" x="16" y="0.0" width="269.5" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -479,7 +482,7 @@ Inutilis Software, 2017-2020</string>
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Info" textLabel="LrI-pk-z3L" style="IBUITableViewCellStyleDefault" id="GmA-IY-F2S">
-                                <rect key="frame" x="0.0" y="349.5" width="320" height="43.5"/>
+                                <rect key="frame" x="0.0" y="371.5" width="320" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GmA-IY-F2S" id="1m5-2A-Qfw">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -517,10 +520,12 @@ Inutilis Software, 2017-2020</string>
         <!--Navigation Controller-->
         <scene sceneID="RGF-gP-Rq2">
             <objects>
-                <navigationController storyboardIdentifier="ExplorerNav" automaticallyAdjustsScrollViewInsets="NO" id="vjV-e6-4vN" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ExplorerNav" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="vjV-e6-4vN" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="hqa-KN-Vct">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="barTintColor" systemColor="secondarySystemBackgroundColor"/>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" id="cpb-BQ-cAU">
                         <autoresizingMask key="autoresizingMask"/>
@@ -536,17 +541,17 @@ Inutilis Software, 2017-2020</string>
         <!--My Programs-->
         <scene sceneID="3mJ-o1-cJC">
             <objects>
-                <viewController storyboardIdentifier="ExplorerView" id="Xni-Pq-CRZ" customClass="ExplorerViewController" customModule="LowRes_NX_Coder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ExplorerView" extendedLayoutIncludesOpaqueBars="YES" id="Xni-Pq-CRZ" customClass="ExplorerViewController" customModule="LowRes_NX_Coder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="63p-SP-37V"/>
                         <viewControllerLayoutGuide type="bottom" id="ijW-NB-o4Z"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="EsH-iL-o4a">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mgK-pS-p2l">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="0.0" id="jvY-sX-kDp">
                                     <size key="itemSize" width="110" height="105"/>
@@ -571,7 +576,7 @@ Inutilis Software, 2017-2020</string>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EVQ-Wv-NI3">
                                                     <rect key="frame" x="15" y="0.0" width="80" height="64"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                 </view>
                                                 <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KyM-fJ-oxW">
                                                     <rect key="frame" x="15" y="0.0" width="80" height="64"/>
@@ -626,12 +631,12 @@ Inutilis Software, 2017-2020</string>
                                 </collectionReusableView>
                             </collectionView>
                             <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="4B5-Tz-hRA">
-                                <rect key="frame" x="141.5" y="243.5" width="37" height="37"/>
+                                <rect key="frame" x="141.5" y="265.5" width="37" height="37"/>
                                 <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jSf-LH-K3l"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="4B5-Tz-hRA" firstAttribute="centerY" secondItem="EsH-iL-o4a" secondAttribute="centerY" id="0L0-gA-5Z7"/>
                             <constraint firstItem="mgK-pS-p2l" firstAttribute="leading" secondItem="jSf-LH-K3l" secondAttribute="leading" id="FUe-gW-3JO"/>
@@ -655,11 +660,13 @@ Inutilis Software, 2017-2020</string>
         <!--Navigation Controller-->
         <scene sceneID="mAu-md-pGD">
             <objects>
-                <navigationController storyboardIdentifier="CommunityNav" automaticallyAdjustsScrollViewInsets="NO" id="Qy1-oJ-8Dv" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="CommunityNav" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="Qy1-oJ-8Dv" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="arr-IJ-JtF">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="barTintColor" systemColor="secondarySystemBackgroundColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -680,5 +687,17 @@ Inutilis Software, 2017-2020</string>
         <image name="replace" width="27" height="19"/>
         <image name="splash_icon" width="96" height="48"/>
         <image name="tab_shadow" width="321" height="4"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

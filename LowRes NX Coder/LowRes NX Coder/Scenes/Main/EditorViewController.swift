@@ -49,20 +49,20 @@ class EditorViewController: UIViewController, UITextViewDelegate, EditorTextView
         
         navigationItem.title = document.localizedName
         
-        view.backgroundColor = AppStyle.darkGrayColor()
-        sourceCodeTextView.backgroundColor = AppStyle.darkGrayColor()
-        sourceCodeTextView.textColor = AppStyle.brightTintColor()
-        sourceCodeTextView.tintColor = AppStyle.whiteColor()
-        sourceCodeTextView.indicatorStyle = .white
+//        view.backgroundColor = AppStyle.darkGrayColor()
+//        sourceCodeTextView.backgroundColor = AppStyle.darkGrayColor()
+//        sourceCodeTextView.textColor = AppStyle.brightTintColor()
+//        sourceCodeTextView.tintColor = AppStyle.whiteColor()
+//        sourceCodeTextView.indicatorStyle = .white
         
         sourceCodeTextView.layoutManager.allowsNonContiguousLayout = false
         sourceCodeTextView.delegate = self
         sourceCodeTextView.editorDelegate = self
 
-        sourceCodeTextView.keyboardAppearance = .dark
+//        sourceCodeTextView.keyboardAppearance = .dark
         if let keyboardToolbar = sourceCodeTextView.keyboardToolbar {
-            keyboardToolbar.isTranslucent = true
-            keyboardToolbar.barStyle = .black
+//            keyboardToolbar.isTranslucent = true
+//            keyboardToolbar.barStyle = .black
         }
         
         sourceCodeTextView.text = document.sourceCode ?? ""
