@@ -88,10 +88,6 @@ class LowResNXViewController: UIViewController, UIKeyInput, CoreWrapperDelegate,
     private var keyboardTop: CGFloat?
     private var keyboardGamepad = CoreInputGamepad()
     
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .portrait
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -216,6 +212,20 @@ class LowResNXViewController: UIViewController, UIKeyInput, CoreWrapperDelegate,
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(controllerDidConnect), name: .GCControllerDidConnect, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(controllerDidDisconnect), name: .GCControllerDidDisconnect, object: nil)
+        
+        // Saurce: https://developer.apple.com/forums/thread/110064
+        let value = UIInterfaceOrientation.portraitUpsideDown.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
+    }
+
+    // Saurce: https://developer.apple.com/forums/thread/110064
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
+    // Saurce: https://developer.apple.com/forums/thread/110064
+    override var shouldAutorotate: Bool {
+        return true
     }
     
     deinit {
@@ -321,103 +331,6 @@ class LowResNXViewController: UIViewController, UIKeyInput, CoreWrapperDelegate,
             coreWrapper.input.right = Int32(right/s)
             coreWrapper.input.bottom = Int32(bottom/s)
         }
-
-        // width = right - left
-        // height = bottom - top
-        // // let width: CGFloat = right - left
-        // // let height: CGFloat = bottom - top
-        
-        // exitButton.frame = CGRect(x: left, y: top, width: 44, height: 44)
-        // menuButton.frame = CGRect(x: right - 44, y: top, width: 44, height: 44)
-        // pauseButton.frame = CGRect(x: (left + right - 44) * 0.5, y: bottom - 44, width: 44, height: 44)
-        
-        // var containerRect: CGRect
-        
-        // let isBig = forcesSmallGamepad ? false : !(numOnscreenGamepads >= 2 && (view.bounds.height <= 320 || view.bounds.width <= 320))
-        // p1Dpad.isBig = isBig
-        // p2Dpad.isBig = isBig
-        // p1ButtonA.isBig = isBig
-        // p1ButtonB.isBig = isBig
-        // p2ButtonA.isBig = isBig
-        // p2ButtonB.isBig = isBig
-        
-        // let padSize: CGFloat = isBig ? 132 : 88
-        // let buttonSize: CGFloat = isBig ? 66 : 44
-        
-        // if height > width {
-        //     // portrait
-        //     containerRect = CGRect(x: left, y: top + 44, width: width, height: width * 4.0 / 5.0)
-            
-        //     let buttonsTop = containerRect.maxY + 16
-            
-        //     p1Dpad.frame = CGRect(x: left + 16, y: buttonsTop, width: padSize, height: padSize)
-            
-        //     if numOnscreenGamepads == 1 {
-        //         p1ButtonA.frame = CGRect(x: right - 16 - 2 * buttonSize, y: buttonsTop + buttonSize, width: buttonSize, height: buttonSize)
-        //         p1ButtonB.frame = CGRect(x: right - 16 - buttonSize, y: buttonsTop, width: buttonSize, height: buttonSize)
-        //     } else if numOnscreenGamepads == 2 {
-        //         p2Dpad.frame = CGRect(x: right - 16 - padSize, y: buttonsTop, width: padSize, height: padSize)
-        //         p1ButtonA.frame = CGRect(x: left + 16 + buttonSize, y: bottom - 16 - buttonSize, width: buttonSize, height: buttonSize)
-        //         p1ButtonB.frame = CGRect(x: left + 16, y: bottom - 16 - 2 * buttonSize, width: buttonSize, height: buttonSize)
-        //         p2ButtonA.frame = CGRect(x: right - 16 - 2 * buttonSize, y: bottom - 16 - buttonSize, width: buttonSize, height: buttonSize)
-        //         p2ButtonB.frame = CGRect(x: right - 16 - buttonSize, y: bottom - 16 - 2 * buttonSize, width: buttonSize, height: buttonSize)
-        //     }
-        // } else {
-        //     // landscape
-        //     if isSafeScaleEnabled && numOnscreenGamepads >= 1 {
-        //         let safeMargin = 16 + padSize
-        //         containerRect = CGRect(x: left + safeMargin, y: top, width: width - 2 * safeMargin, height: height)
-        //     } else {
-        //         containerRect = CGRect(x: left, y: top, width: width, height: height)
-        //     }
-            
-        //     if let keyboardTop = keyboardTop, containerRect.maxY > keyboardTop {
-        //         containerRect.size.height = keyboardTop - containerRect.minY
-        //     }
-            
-        //     let buttonAY = bottom - 16 - buttonSize
-        //     let buttonBY = bottom - 16 - 2 * buttonSize
-            
-        //     if numOnscreenGamepads == 1 {
-        //         p1Dpad.frame = CGRect(x: left + 16, y: bottom - 16 - padSize, width: padSize, height: padSize)
-        //         p1ButtonA.frame = CGRect(x: right - 16 - 2 * buttonSize, y: buttonAY, width: buttonSize, height: buttonSize)
-        //         p1ButtonB.frame = CGRect(x: right - 16 - buttonSize, y: buttonBY, width: buttonSize, height: buttonSize)
-        //     } else if numOnscreenGamepads == 2 {
-        //         let dpadY = bottom - 16 - padSize - 32 - 2 * buttonSize
-        //         p1Dpad.frame = CGRect(x: left + 16, y: dpadY, width: padSize, height: padSize)
-        //         p2Dpad.frame = CGRect(x: right - 16 - padSize, y: dpadY, width: padSize, height: padSize)
-        //         p1ButtonA.frame = CGRect(x: left + 16 + buttonSize, y: buttonAY, width: buttonSize, height: buttonSize)
-        //         p1ButtonB.frame = CGRect(x: left + 16, y: buttonBY, width: buttonSize, height: buttonSize)
-        //         p2ButtonA.frame = CGRect(x: right - 16 - 2 * buttonSize, y: buttonAY, width: buttonSize, height: buttonSize)
-        //         p2ButtonB.frame = CGRect(x: right - 16 - buttonSize, y: buttonBY, width: buttonSize, height: buttonSize)
-        //     }
-        // }
-        
-        // let screenWidth = containerRect.size.width
-        // let screenHeight = containerRect.size.height
-        // var maxWidthFactor: CGFloat
-        // var maxHeightFactor: CGFloat
-        
-        // if isSafeScaleEnabled {
-        //     // pixel exact scaling
-        //     let scale: CGFloat = view.window?.screen.scale ?? 1.0
-        //     maxWidthFactor = floor(screenWidth * scale / CGFloat(SCREEN_WIDTH)) / scale
-        //     maxHeightFactor = floor(screenHeight * scale / CGFloat(SCREEN_HEIGHT)) / scale
-        // } else {
-        //     // normal scaling
-        //     maxWidthFactor = screenWidth / CGFloat(SCREEN_WIDTH)
-        //     maxHeightFactor = screenHeight / CGFloat(SCREEN_HEIGHT)
-        // }
-        
-        // let nxWidth = (maxWidthFactor < maxHeightFactor) ? maxWidthFactor * CGFloat(SCREEN_WIDTH) : maxHeightFactor * CGFloat(SCREEN_WIDTH)
-        // let nxHeight = nxWidth * 4.0 / 5.0
-        
-        // nxView.frame = CGRect(
-        //     x: floor(containerRect.origin.x + (containerRect.size.width - nxWidth) * 0.5),
-        //     y: floor(containerRect.origin.y + (containerRect.size.height - nxHeight) * 0.5),
-        //     width: nxWidth,
-        //     height: nxHeight
-        // )
     }
     
     func compileAndStartProgram(sourceCode: String) -> LowResNXError? {
@@ -804,7 +717,7 @@ class LowResNXViewController: UIViewController, UIKeyInput, CoreWrapperDelegate,
         
         let timeSinceStart = Date().timeIntervalSince(startDate)
         
-        if timeSinceStart >= 60 && controlsInfo.isTouchEnabled {
+        if timeSinceStart >= 60 {
             let alert = UIAlertController(title: "Do you really want to exit this program?", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Exit", style: .default, handler: { [unowned self] (action) in
                 self.exit()

@@ -143,6 +143,7 @@
 		5B99181A2A65427C0015B468 /* particles_lib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = particles_lib.h; sourceTree = "<group>"; };
 		5BAF0D5C2A654C220023FA61 /* cmd_particle.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cmd_particle.c; sourceTree = "<group>"; };
 		5BAF0D5D2A654C220023FA61 /* cmd_particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cmd_particle.h; sourceTree = "<group>"; };
+		5BBF1AF22A8CBD57003D45AA /* pcg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pcg.h; sourceTree = "<group>"; };
 		9208A7CF202120AE00D1EFF7 /* cmd_subs.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cmd_subs.c; sourceTree = "<group>"; };
 		9208A7D0202120AF00D1EFF7 /* cmd_subs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cmd_subs.h; sourceTree = "<group>"; };
 		920E1B191F77FF7A00664382 /* ExplorerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorerViewController.swift; sourceTree = "<group>"; };
@@ -460,6 +461,7 @@
 		928401CF1F7448B500AC1466 /* core */ = {
 			isa = PBXGroup;
 			children = (
+				5BBF1AF22A8CBD57003D45AA /* pcg.h */,
 				928401D31F7448B500AC1466 /* core.c */,
 				928401D41F7448B500AC1466 /* core.h */,
 				928401D51F7448B500AC1466 /* core_delegate.h */,
