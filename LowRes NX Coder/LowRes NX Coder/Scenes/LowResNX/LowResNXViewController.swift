@@ -42,14 +42,6 @@ class LowResNXViewController: UIViewController, UIKeyInput, CoreWrapperDelegate,
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var nxView: LowResNXView!
     
-    @IBOutlet weak var p1Dpad: Dpad!
-    @IBOutlet weak var p1ButtonA: ActionButton!
-    @IBOutlet weak var p1ButtonB: ActionButton!
-    @IBOutlet weak var p2Dpad: Dpad!
-    @IBOutlet weak var p2ButtonA: ActionButton!
-    @IBOutlet weak var p2ButtonB: ActionButton!
-    @IBOutlet weak var pauseButton: UIButton!
-    
     weak var delegate: LowResNXViewControllerDelegate?
     weak var toolDelegate: LowResNXViewControllerToolDelegate?
     var webSource: WebSource?
@@ -66,17 +58,7 @@ class LowResNXViewController: UIViewController, UIKeyInput, CoreWrapperDelegate,
         }
     }
     
-    var isSafeScaleEnabled = false {
-        didSet {
-            configureGameControllers()
-        }
-    }
-    
-    var forcesSmallGamepad = false {
-        didSet {
-            view.setNeedsLayout()
-        }
-    }
+    var isSafeScaleEnabled = false
     
     private var controlsInfo: ControlsInfo = ControlsInfo()
     private var displayLink: CADisplayLink?
@@ -86,7 +68,6 @@ class LowResNXViewController: UIViewController, UIKeyInput, CoreWrapperDelegate,
     private var audioPlayer: LowResNXAudioPlayer!
     private var numOnscreenGamepads = 0
     private var keyboardTop: CGFloat?
-    private var keyboardGamepad = CoreInputGamepad()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,12 +80,6 @@ class LowResNXViewController: UIViewController, UIKeyInput, CoreWrapperDelegate,
         startDate = Date()
         
         isSafeScaleEnabled = AppController.shared.isSafeScaleEnabled
-        forcesSmallGamepad = AppController.shared.forcesSmallGamepad
-        
-        p1ButtonA.action = .a
-        p1ButtonB.action = .b
-        p2ButtonA.action = .a
-        p2ButtonB.action = .b
         
         if let coreWrapper = coreWrapper {
             // program already compiled
@@ -190,7 +165,6 @@ class LowResNXViewController: UIViewController, UIKeyInput, CoreWrapperDelegate,
         audioPlayer = LowResNXAudioPlayer(coreWrapper: coreWrapper)
         
         coreWrapper.delegate = self
-        configureGameControllers()
         
         inputAssistantItem.leadingBarButtonGroups = []
         inputAssistantItem.trailingBarButtonGroups = []
@@ -210,10 +184,8 @@ class LowResNXViewController: UIViewController, UIKeyInput, CoreWrapperDelegate,
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(controllerDidConnect), name: .GCControllerDidConnect, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(controllerDidDisconnect), name: .GCControllerDidDisconnect, object: nil)
         
-        // Saurce: https://developer.apple.com/forums/thread/110064
+        // Sauce: https://developer.apple.com/forums/thread/110064
         let value = UIInterfaceOrientation.portraitUpsideDown.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
     }
@@ -453,96 +425,10 @@ class LowResNXViewController: UIViewController, UIKeyInput, CoreWrapperDelegate,
             return
         }
         
-        updateGameControllers()
-        updateOnscreenGamepads()
-        
         core_update(&coreWrapper.core, &coreWrapper.input)
         
         if core_shouldRender(&coreWrapper.core) {
             nxView.render()
-        }
-    }
-    
-    func configureGameControllers() {
-        let numPlayers = Int(controlsInfo.numGamepadsEnabled)
-        var numGameControllers = 0
-        
-        if SUPPORTS_GAME_CONTROLLERS {
-            let gameControllers = GCController.controllers()
-            for gameController in gameControllers {
-                gameController.playerIndex = GCControllerPlayerIndex(rawValue: numGameControllers)!
-                gameController.controllerPausedHandler = { [weak self] (controller) in
-                    if let coreWrapper = self?.coreWrapper {
-                        coreWrapper.input.pause = true
-                    }
-                }
-                numGameControllers += 1
-            }
-        }
-        
-        numOnscreenGamepads = max(0, numPlayers - numGameControllers)
-        
-        p1Dpad.isHidden = numOnscreenGamepads < 1
-        p1ButtonA.isHidden = numOnscreenGamepads < 1
-        p1ButtonB.isHidden = numOnscreenGamepads < 1
-        p2Dpad.isHidden = numOnscreenGamepads < 2
-        p2ButtonA.isHidden = numOnscreenGamepads < 2
-        p2ButtonB.isHidden = numOnscreenGamepads < 2
-        pauseButton.isHidden = numOnscreenGamepads == 0
-        
-        view.setNeedsLayout()
-    }
-    
-    func updateGameControllers() {
-        guard let coreWrapper = coreWrapper, SUPPORTS_GAME_CONTROLLERS else {
-            return
-        }
-        
-        for gameController in GCController.controllers() {
-            if let gamepad = gameController.gamepad, gameController.playerIndex != .indexUnset {
-                var up = gamepad.dpad.up.isPressed
-                var down = gamepad.dpad.down.isPressed
-                var left = gamepad.dpad.left.isPressed
-                var right = gamepad.dpad.right.isPressed
-                if let stick = gameController.extendedGamepad?.leftThumbstick {
-                    up = up || stick.up.isPressed
-                    down = down || stick.down.isPressed
-                    left = left || stick.left.isPressed
-                    right = right || stick.right.isPressed
-                }
-                let buttonA = gamepad.buttonA.isPressed || gamepad.buttonX.isPressed
-                let buttonB = gamepad.buttonB.isPressed || gamepad.buttonY.isPressed
-                
-                let player = gameController.playerIndex.rawValue
-                core_setInputGamepad(&coreWrapper.input, Int32(player), up, down, left, right, buttonA, buttonB)
-            }
-        }
-    }
-    
-    func updateOnscreenGamepads() {
-        guard let coreWrapper = coreWrapper else {
-            return
-        }
-        
-        let numGameControllers = SUPPORTS_GAME_CONTROLLERS ? GCController.controllers().count : 0
-        let numPlayers = Int(controlsInfo.numGamepadsEnabled)
-        let numOnscreenGamepads = numPlayers - numGameControllers
-        
-        if numOnscreenGamepads >= 1 {
-            core_setInputGamepad(&coreWrapper.input, Int32(numGameControllers),
-                                 p1Dpad.isDirUp || keyboardGamepad.up,
-                                 p1Dpad.isDirDown || keyboardGamepad.down,
-                                 p1Dpad.isDirLeft || keyboardGamepad.left,
-                                 p1Dpad.isDirRight || keyboardGamepad.right,
-                                 p1ButtonA.isHighlighted || keyboardGamepad.buttonA,
-                                 p1ButtonB.isHighlighted || keyboardGamepad.buttonB)
-        }
-        
-        if numOnscreenGamepads >= 2 {
-            core_setInputGamepad(&coreWrapper.input, Int32(numGameControllers + 1),
-                                 p2Dpad.isDirUp, p2Dpad.isDirDown, p2Dpad.isDirLeft, p2Dpad.isDirRight,
-                                 p2ButtonA.isHighlighted,
-                                 p2ButtonB.isHighlighted)
         }
     }
     
@@ -577,30 +463,6 @@ class LowResNXViewController: UIViewController, UIKeyInput, CoreWrapperDelegate,
         for press in presses {
             if let key = press.key {
                 
-                // key codes
-                switch key.keyCode {
-                case .keyboardLeftArrow:
-                    keyboardGamepad.left = true
-                    handled = true
-                case .keyboardRightArrow:
-                    keyboardGamepad.right = true
-                    handled = true
-                case .keyboardUpArrow:
-                    keyboardGamepad.up = true
-                    handled = true
-                case .keyboardDownArrow:
-                    keyboardGamepad.down = true
-                    handled = true
-                case .keyboardZ, .keyboardN:
-                    keyboardGamepad.buttonA = true
-                    handled = true
-                case .keyboardX, .keyboardM:
-                    keyboardGamepad.buttonB = true
-                    handled = true
-                default:
-                    break
-                }
-                
                 // key strings
                 switch key.charactersIgnoringModifiers {
                 case "p", "\r":
@@ -614,39 +476,6 @@ class LowResNXViewController: UIViewController, UIKeyInput, CoreWrapperDelegate,
         }
         if !handled {
             super.pressesBegan(presses, with: event)
-        }
-    }
-        
-    override func pressesEnded(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
-        var handled = false
-        for press in presses {
-            if let key = press.key {
-                switch key.keyCode {
-                case .keyboardLeftArrow:
-                    keyboardGamepad.left = false
-                    handled = true
-                case .keyboardRightArrow:
-                    keyboardGamepad.right = false
-                    handled = true
-                case .keyboardUpArrow:
-                    keyboardGamepad.up = false
-                    handled = true
-                case .keyboardDownArrow:
-                    keyboardGamepad.down = false
-                    handled = true
-                case .keyboardZ, .keyboardN:
-                    keyboardGamepad.buttonA = false
-                    handled = true
-                case .keyboardX, .keyboardM:
-                    keyboardGamepad.buttonB = false
-                    handled = true
-                default:
-                    break
-                }
-            }
-        }
-        if !handled {
-            super.pressesEnded(presses, with: event)
         }
     }
     
@@ -702,14 +531,6 @@ class LowResNXViewController: UIViewController, UIKeyInput, CoreWrapperDelegate,
         })
     }
     
-    @objc func controllerDidConnect(_ notification: NSNotification) {
-        configureGameControllers()
-    }
-
-    @objc func controllerDidDisconnect(_ notification: NSNotification) {
-        configureGameControllers()
-    }
-    
     @IBAction func onExitTapped(_ sender: Any?) {
         if sender is UIKeyCommand {
             delegate?.didEndWithKeyCommand()
@@ -742,20 +563,6 @@ class LowResNXViewController: UIViewController, UIKeyInput, CoreWrapperDelegate,
                 self.isSafeScaleEnabled = true
                 AppController.shared.isSafeScaleEnabled = true
             }))
-        }
-        
-        if numOnscreenGamepads > 0 {
-            if forcesSmallGamepad {
-                alert.addAction(UIAlertAction(title: "Show Big Gamepad", style: .default, handler: { [unowned self] (action) in
-                    self.forcesSmallGamepad = false
-                    AppController.shared.forcesSmallGamepad = false
-                }))
-            } else {
-                alert.addAction(UIAlertAction(title: "Show Small Gamepad", style: .default, handler: { [unowned self] (action) in
-                    self.forcesSmallGamepad = true
-                    AppController.shared.forcesSmallGamepad = true
-                }))
-            }
         }
 
         if document != nil {
@@ -884,7 +691,6 @@ class LowResNXViewController: UIViewController, UIKeyInput, CoreWrapperDelegate,
             if controlsInfo.isAudioEnabled {
                 self.audioPlayer.start()
             }
-            self.configureGameControllers()
         }
     }
     
